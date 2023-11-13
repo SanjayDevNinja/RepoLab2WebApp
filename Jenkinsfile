@@ -29,7 +29,7 @@ pipeline {
 					//WARNING! Using --password via the CLI is insecure. Use --password-stdin.
 					//Error response from daemon: Get "https://registry-1.docker.io/v2/": unauthorized: incorrect username or password                    
 
-					bat 'docker login -u $DOCKERHUB_USER -p $DOCKERHUB_PWD'
+					sh 'docker login --username $DOCKERHUB_USER --password $DOCKERHUB_PWD'
                     }
 					//unable to fix error
 					bat 'docker login -u sanjaydevninja -p mypassword'
