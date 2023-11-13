@@ -7,7 +7,7 @@ pipeline {
 	}
 	environment
 	{
-		DOCKERHUB_PWD=credentials('CredentialID_DockerHubPWD')
+		DOCKERHUB_PWD=credentials('DockerUser')
 	}
     stages {
         stage('Build') {
@@ -18,11 +18,11 @@ pipeline {
 					
 					//#bat 'docker build -t sanjaydevninja/sanjaywebapp:1.0 .'
 					
-					 //bat "docker login -u sanjaydevninja -p ${DOCKERHUB_PWD}"
-					 // Use withCredentials to securely pass the Docker Hub password
-                    withCredentials([usernamePassword(credentialsId: 'CredentialID_DockerHubPWD', passwordVariable: 'DOCKERHUB_PWD', usernameVariable: '')]) {
+					// bat "docker login -u sanjaydevninja -p ${DOCKERHUB_PWD}"
+					   // Use withCredentials to securely pass the Docker Hub credentials
+                    withCredentials([usernamePassword(credentialsId: 'DockerUser', passwordVariable: 'DOCKERHUB_PWD', usernameVariable: 'DOCKERHUB_USER')]) {
                         sh 'docker login -u sanjaydevninja -p $DOCKERHUB_PWD'
-                    }
+                    
 				}
             }
         }
