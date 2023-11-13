@@ -44,5 +44,10 @@ pipeline {
 				bat 'docker login -u sanjaydevninja -p sanjay1234'
 			}
 		}
+		stage('Docker push') {
+			steps {
+				bat 'docker push sanjaydevninja/sanjaywebapp:1.0'
+			}
+		}
     }
 }
