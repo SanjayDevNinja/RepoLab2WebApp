@@ -3,4 +3,18 @@
   <groupId>com.Lab2</groupId>
   <artifactId>lab2-welcome-webapp</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  
+  
+  <packaging>war</packaging>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.2.2</version>
+            </plugin>
+        </plugins>
+        </build>
+  
 </project>

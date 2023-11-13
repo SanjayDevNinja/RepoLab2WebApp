@@ -8,7 +8,7 @@ WORKDIR /usr/src/app
 COPY pom.xml .
 
 # Copy the entire project into the container at /usr/src/app
-COPY . .
+COPY src src
 
 # Build the application
 RUN mvn clean package
@@ -19,14 +19,11 @@ FROM tomcat:9.0.53-jdk11-openjdk-slim
 # Set the working directory in the container
 WORKDIR /usr/local/tomcat/webapps
 
-# Copy the war file from the build stage to the Tomcat webapps directory
-COPY --from=build /usr/src/app/target/lab2-welcome-webapp-0.0.1-SNAPSHOT.jar .
+# Copy the WAR file from the build stage to the Tomcat webapps directory
+COPY --from=build /usr/src/app/target/lab2-welcome-webapp-0.0.1-SNAPSHOT.war .
 
 # Expose port 8080 to the outside world
 EXPOSE 8080
-
-# Define environment variable
-ENV NAME sanjaywebapp
 
 # Run Tomcat
 CMD ["catalina.sh", "run"]
