@@ -18,7 +18,11 @@ pipeline {
 					
 					//#bat 'docker build -t sanjaydevninja/sanjaywebapp:1.0 .'
 					
-					 sh "docker login -u sanjaydevninja -p ${DOCKERHUB_PWD}"
+					 //bat "docker login -u sanjaydevninja -p ${DOCKERHUB_PWD}"
+					 // Use withCredentials to securely pass the Docker Hub password
+                    withCredentials([usernamePassword(credentialsId: 'CredentialID_DockerHubPWD', passwordVariable: 'DOCKERHUB_PWD', usernameVariable: '')]) {
+                        sh 'docker login -u sanjaydevninja -p $DOCKERHUB_PWD'
+                    }
 				}
             }
         }
