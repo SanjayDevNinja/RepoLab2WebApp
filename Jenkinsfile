@@ -27,9 +27,10 @@ pipeline {
 					//WARNING! Using --password via the CLI is insecure. Use --password-stdin.
 					//Error response from daemon: Get "https://registry-1.docker.io/v2/": unauthorized: incorrect username or password                      
 
+					
+                    //}
 					//unable to fix error
-					  bat 'docker login -u sanjaydevninja -p sanjay1234'
-                    }
+					bat 'docker login -u sanjaydevninja -p sanjay1234'
 				}
             }
         }
