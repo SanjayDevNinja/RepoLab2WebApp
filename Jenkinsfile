@@ -32,7 +32,7 @@ pipeline {
 					sh 'docker login --username $DOCKERHUB_USER --password $DOCKERHUB_PWD'
                     }
 					//unable to fix error
-					bat 'docker login -u sanjaydevninja -p mypassword'
+					//bat 'docker login -u sanjaydevninja -p mypassword'
 				}
             }
         }
