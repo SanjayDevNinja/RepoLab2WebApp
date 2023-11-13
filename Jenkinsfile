@@ -16,7 +16,7 @@ pipeline {
                 bat 'mvn clean compile test package'
 				script {
 					
-					//bat 'docker build -t sanjaydevninja/sanjaywebapp:1.0 .'
+					bat 'docker build -t sanjaydevninja/sanjaywebapp:1.0 .'
 					
 					
 					
@@ -31,12 +31,9 @@ pipeline {
 
 					//sh 'docker login -u $DOCKERHUB_USER --password $DOCKERHUB_PWD'
                    // }
+				   
 					//unable to fix error
-					//bat 'docker login -u sanjaydevninja -p sanjay1234'
-					
-					  withCredentials([usernamePassword(credentialsId: 'DockerUser', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-                    sh 'docker login --username ${USERNAME} --password ${PASSWORD}'
-					}
+					bat 'docker login -u sanjaydevninja -p sanjay1234'
 				}
             }
         }
