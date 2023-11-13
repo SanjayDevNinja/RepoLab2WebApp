@@ -18,7 +18,7 @@ pipeline {
 					
 					//#bat 'docker build -t sanjaydevninja/sanjaywebapp:1.0 .'
 					
-					 bat 'docker login -u sanjaydevninja --password-stdin ${DOCKERHUB_PWD}'
+					 sh "docker login -u sanjaydevninja -p ${DOCKERHUB_PWD}"
 				}
             }
         }
