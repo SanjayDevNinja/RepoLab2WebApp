@@ -4,19 +4,7 @@ pipeline{
         maven 'MAVEN3'
     }
     stages{
-    stage('Build Maven Project') {
-            steps{
-                //checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/dagutierrez-mx/COMP367MavenWebApp']])
-                //sh 'mvn clean install'
-            }
-        }
-        stage('Docker Build') {
-            steps{
-                script{
-                   // sh 'docker build -t dagutiercente/mavenwebapp .'
-                }
-            }
-        }
+   
         stage('Docker Login'){
             steps{
                 script{
@@ -27,13 +15,6 @@ pipeline{
                 }
             }
   		}
-  		stage('DockerHub Push'){
-            steps{
-                script{
- 
-                   // sh 'docker push dagutiercente/mavenwebapp'
-                }
-            }
-  		}
+
 	}
 }
