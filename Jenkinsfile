@@ -18,6 +18,7 @@ pipeline {
 					
 					//#bat 'docker build -t sanjaydevninja/sanjaywebapp:1.0 .'
 					bat 'echo ${env.DOCKERHUB_PWD}'
+					echo "DOCKERHUB_PWD: ${DOCKERHUB_PWD}"
 					bat 'docker login -u sanjaydevninja -p sanjay1234'
 				}
             }
