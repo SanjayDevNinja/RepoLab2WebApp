@@ -5,8 +5,12 @@ pipeline {
 		jdk "JDK"
 	
 	}
-	
-   stage('Docker Login'){
+	environment
+	{
+		DOCKERHUB_PWD=credentials('DockerUser')
+	}
+    stages {
+			stage('Docker Login'){
             steps{
                 script{
  
@@ -15,7 +19,5 @@ pipeline {
                     }
                 }
             }
+    }
 }
-
-}
-
