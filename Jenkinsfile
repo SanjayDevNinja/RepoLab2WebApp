@@ -22,7 +22,7 @@ pipeline {
 					   // Use withCredentials to securely pass the Docker Hub credentials
                     withCredentials([usernamePassword(credentialsId: 'DockerUser', passwordVariable: 'DOCKERHUB_PWD', usernameVariable: 'DOCKERHUB_USER')]) {
                         sh 'docker login -u sanjaydevninja -p $DOCKERHUB_PWD'
-                    
+                    }
 				}
             }
         }
